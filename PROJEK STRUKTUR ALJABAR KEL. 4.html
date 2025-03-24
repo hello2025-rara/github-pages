@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Aljabar</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url('https://wallpapers.com/images/hd/fractal-physics-equations-idpkoubksp4zw0y5.jpg') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 100;
+            color: white;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            position: fixed;
+            left: -250px;
+            top: 0;
+            padding-top: 50px;
+            transition: 0.3s;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-bottom: 1px solid gray;
+        }
+
+        .sidebar a:hover {
+            background: gray;
+        }
+
+        .content {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .download-btn {
+            background: orange;
+            color: black;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        /* Efek Timbl & Glowing untuk Judul */
+        .judul {
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 0 10px gold, 0 0 20px yellow, 0 0 30px orange;
+            text-align: center;
+            margin-top: 50px;
+            animation: floating 3s infinite ease-in-out, glow 2s infinite alternate;
+        }
+
+        /* Animasi Melayang Naik-Turun */
+            @keyframes floating {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+         /* Animasi Glowing */
+            @keyframes glow {
+            0% { text-shadow: 0 0 10px gold, 0 0 20px yellow; }
+            100% { text-shadow: 0 0 20px orange, 0 0 30px red; }
+        }
+        
+    </style>
+</head>
+<body>
+    <h1 id="judul" class="judul">Struktur Aljabar</h1>
+    
+    <div class="menu-btn" onclick="toggleMenu()">&#9776;</div>
+
+    <div class="sidebar" id="sidebar">
+        <a href="koset">Koset</a>
+        <a href="Teorema A-1 koset.pdf">Teorema A-1</a>
+        <a href="definisiA-1 koset.pdf">Definisi A-1</a>
+        <a href="Teorema A-2.pdf">Teorema A-2</a>
+        <a href="Definisi A-2.pdf">Definisi A-2</a>
+        <a href="Teorema A-3.pdf">Teorema A-3</a>
+        <a href="Definisi A-3.pdf">Definisi A-3</a>
+        <a href="Teorema A-4.pdf">Teorema A-4</a>
+        <a href="Subgrup Normal">Subgrup Normal</a>
+        <a href="Definisi B-1.pdf">Definisi B-1</a>
+        <a href="Teorema B-1.pdf">Teorema B-1</a>
+    </div>
+
+    <div class="content" id="content">
+        <h2 id="KOSET DAN SUBGRUP NORMAL">KOSET DAN SUBGRUP NORMAL</h2> 
+
+        <h2 id="Teorema A-1">Teorema A-1</h2>
+        <h2 id="Definisi A-1">Definisi A-1</h2>
+        <h2 id="Teorema A-2">Teorema A-2</h2>
+        <h2 id="Teorema A-3">Teorema A-3</h2>
+        <h2 id="Definisi A-3">Definisi A-3</h2>
+        <h2 id="Teorema A-4">Teorema A-4</h2>
+        <h2 id="Teorema B-1">Teorema B-1</h2>
+        <h2 id="Definisi B-1">Definisi B-1</h2>
+        <button class="download-btn" onclick="downloadPDF()">Unduh sebagai PDF</button>
+    </div>
+
+    <div class="footer">Dibuat Oleh Kelompok 4</div>
+
+    <script>
+        function toggleMenu() {
+            let sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0px";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+
+        function downloadPDF() {
+            let content = document.getElementById("content");
+            html2pdf().from(content).save("Struktur_Aljabar.pdf");
+        }
+        
+    </script>
+    
+
+</body>
+</html>
